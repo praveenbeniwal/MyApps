@@ -103,6 +103,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 				.setDefaults(defaults)
 				.setSmallIcon(context.getApplicationInfo().icon)
 				.setWhen(System.currentTimeMillis())
+				.setStyle(new NotificationCompat.BigTextStyle().bigText(message))			
 				.setContentTitle(extras.getString("title"))
 				.setTicker(extras.getString("title"))
 				.setContentIntent(contentIntent)
@@ -111,6 +112,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 		String message = extras.getString("message");
 		if (message != null) {
 			mBuilder.setContentText(message);
+			
 		} else {
 			mBuilder.setContentText("<missing message content>");
 		}
